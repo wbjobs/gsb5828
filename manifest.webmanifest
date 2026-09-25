@@ -1,0 +1,9 @@
+{
+  "name": "离线优先应用",
+  "short_name": "离线应用",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f1f5f9",
+  "theme_color": "#2563eb",
+  "icons": []
+}

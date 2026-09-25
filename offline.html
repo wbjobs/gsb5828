@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>离线 - 页面不可用</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+           font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #f1f5f9; color: #1e293b; }
+    .card { text-align: center; padding: 48px 32px; background: #fff; border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, .08); max-width: 420px; }
+    .icon { font-size: 56px; }
+    h1 { font-size: 20px; margin: 16px 0 8px; }
+    p { color: #64748b; font-size: 14px; line-height: 1.7; }
+    button { margin-top: 16px; padding: 10px 24px; border: 0; border-radius: 8px;
+             background: #2563eb; color: #fff; font-size: 14px; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">📡</div>
+    <h1>当前处于离线状态</h1>
+    <p>你访问的页面尚未缓存，无法离线打开。<br>已缓存的页面仍可正常访问，请检查网络后重试。</p>
+    <button onclick="location.reload()">重新加载</button>
+  </div>
+</body>
+</html>
