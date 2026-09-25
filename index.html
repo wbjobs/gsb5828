@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2563eb" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>离线优先笔记</title>
+</head>
+<body>
+  <header class="app-header">
+    <h1>离线优先笔记 <span id="app-version" class="version"></span></h1>
+    <div class="badges">
+      <span id="net-status" class="badge">…</span>
+      <span class="badge">SW: <span id="sw-status">注册中</span></span>
+      <span class="badge">标签页: <span id="tab-count">1</span></span>
+    </div>
+  </header>
+
+  <div id="update-banner" class="banner" hidden>
+    发现新版本，点击更新并刷新页面。
+    <button id="update-btn" class="primary">立即更新</button>
+  </div>
+
+  <div id="compat-warning" class="banner warn" hidden>
+    当前浏览器不支持 Service Worker，应用仅能在线使用。
+  </div>
+
+  <main>
+    <section class="card">
+      <h2>写笔记</h2>
+      <form id="note-form">
+        <input id="note-input" type="text" placeholder="离线也能写，恢复网络后自动同步" autocomplete="off" />
+        <button type="submit" class="primary">保存</button>
+      </form>
+      <p class="hint">待同步队列：<strong id="outbox-count">0</strong> 条
+        <button id="flush-btn" class="link">手动同步</button>
+      </p>
+      <ul id="notes" class="notes"></ul>
+    </section>
+
+    <section class="card">
+      <h2>设置（跨标签页同步）</h2>
+      <label class="switch-row">
+        <input id="theme-toggle" type="checkbox" /> 深色模式
+      </label>
+      <p class="hint">在另一个标签页切换主题，本页会实时同步。</p>
+    </section>
+
+    <section class="card">
+      <h2>诊断</h2>
+      <dl class="diag">
+        <dt>当前标签页</dt><dd id="tab-id"></dd>
+        <dt>存储用量</dt><dd id="storage-usage">…</dd>
+      </dl>
+      <div class="actions">
+        <button id="check-update-btn">检查更新</button>
+        <button id="clean-cache-btn">清理旧缓存</button>
+        <a href="./not-cached-page.html" class="link">打开未缓存页面（离线降级演示）</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="toasts" class="toasts"></div>
+
+  <script src="./version.js"></script>
+  <script src="./db.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
